@@ -7,7 +7,7 @@ $(document).ready(function () {
   }
 
   $.ajax({
-    url: "php/get_profile.php?token=" + encodeURIComponent(token),
+    url: "/php/get_profile.php?token=" + encodeURIComponent(token),
     type: "GET",
     dataType: "json",
     success: function (response) {
