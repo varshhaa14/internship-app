@@ -2,12 +2,12 @@
 require_once 'config.php';
 
 function getMySQLConnection() {
-    $dsn = "mysql:host=" . MYSQL_HOST . ";dbname=" . MYSQL_DB . ";charset=utf8mb4";
-    $options = [
-        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-        PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
-    ];
+    $dsn = "pgsql:host=" . getenv("MYSQL_HOST") .
+           ";port=" . getenv("MYSQL_PORT") .
+           ";dbname=" . getenv("MYSQL_DB");
 
-    return new PDO($dsn, MYSQL_USER, MYSQL_PASS, $options);
+    return new PDO($dsn, getenv("MYSQL_USER"), getenv("MYSQL_PASS"), [
+        PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+    ]);
 }
 ?>
