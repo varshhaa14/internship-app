@@ -3,7 +3,7 @@ $(document).ready(function () {
     e.preventDefault();
 
     $.ajax({
-      url: "/php/login.php",
+      url: "php/login.php",
       type: "POST",
       dataType: "json",
       data: {
